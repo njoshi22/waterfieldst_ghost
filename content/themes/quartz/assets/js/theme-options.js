@@ -24,7 +24,7 @@ var slider_nav = true;
 
 /************ Social Media ************/
 
-var facebook_link = "http://www.facebook.com";
+var facebook_link = "http://www.facebook.com/";
 var twitter_link = "http://www.twitter.com";
 var google_plus_link = "https://plus.google.com/";
 var dribbble_link = "";
