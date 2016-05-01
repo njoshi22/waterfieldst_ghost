@@ -1,0 +1,1274 @@
+/*! Quartz - v1.0.2 - 2016.04.01
+* Quartz is a premium news & magazine theme for Ghost
+* http://www.voltthemes.com
+* by Volt Themes */
+
+@import "normalize";
+@import "variables";
+@import "mixins";
+@import "fluidbox";
+@import "flickity";
+@import "pushy";
+
+/* ==========================================================================
+   Icon Fonts
+   ========================================================================== */
+
+@font-face {
+    font-family: 'quartz';
+    src:url('../fonts/quartz.eot?-8334ht');
+    src:url('../fonts/quartz.eot?#iefix-8334ht') format('embedded-opentype'),
+        url('../fonts/quartz.woff?-8334ht') format('woff'),
+        url('../fonts/quartz.ttf?-8334ht') format('truetype'),
+        url('../fonts/quartz.svg?-8334ht#quartz') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'quartz';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-angle-down:before {
+    content: "\e64b";
+}
+.icon-rss:before {
+    content: "\e603";
+}
+.icon-linkedin:before {
+    content: "\e604";
+}
+.icon-angle-left:before {
+    content: "\e605";
+}
+.icon-angle-right:before {
+    content: "\e606";
+}
+.icon-github:before {
+    content: "\e607";
+}
+.icon-facebook:before {
+    content: "\e608";
+}
+.icon-twitter:before {
+    content: "\e609";
+}
+.icon-google-plus:before {
+    content: "\e60a";
+}
+.icon-youtube:before {
+    content: "\e60b";
+}
+.icon-pinterest:before {
+    content: "\e60c";
+}
+.icon-instagram:before {
+    content: "\e60d";
+}
+.icon-search:before {
+    content: "\e60e";
+}
+.icon-comment:before {
+    content: "\e60f";
+}
+.icon-flickr:before {
+    content: "\e610";
+}
+.icon-email:before {
+    content: "\e611";
+}
+.icon-tumblr:before {
+    content: "\e612";
+}
+.icon-dribbble:before {
+    content: "\e613";
+}
+.icon-vimeo:before {
+    content: "\f194";
+}
+.icon-soundcloud:before {
+    content: "\e900";
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+
+html{
+    color: $body-font-color;
+    font-size: $body-font-size;
+    line-height: 1.4;
+}
+
+body{
+    font-family: 'Open sans';
+    background: #FFF;
+}
+
+.wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 1372px;
+    margin: 0 auto;
+    padding: 0 2.5%;
+}
+
+.post-wrapper{
+    background: #FFF;
+}
+
+main{
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin-top: 75px;
+    margin-bottom: 40px;
+    z-index: 100;
+}
+
+a:link, 
+a:visited{
+    color: $primary-color;
+    text-decoration: none;
+    outline: 0;
+    transition: all, 0.5s;
+}
+
+a:hover{
+    color: $link-hover;
+}
+
+/* Remove text-shadow in selection highlight */
+
+::-moz-selection{
+    background: $secondary-color;
+    color: #FFF;
+    text-shadow: none;
+}
+
+::selection{
+    background: $secondary-color;
+    color: #FFF;
+    text-shadow: none;
+}
+
+/* A better looking default horizontal rule */
+
+hr{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #e3e3e3;
+    margin: 1.5em 0;
+    padding: 0;
+}
+
+/* Clearfix */
+
+.clearfix:before,
+.clearfix:after{
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after{
+    clear: both;
+}
+
+/* Vertically Centers */
+.vertical{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   CSS Animations
+   ========================================================================== */
+
+.animated{
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+/* No animation (if visible)*/
+
+.already-visible{
+    transform: none;
+    -webkit-transform: none;
+    -webkit-animation: none;
+    animation: none;
+}
+
+/* Fade In */
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeIn{
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+/* ==========================================================================
+   Media
+   ========================================================================== */
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.full-width{
+    margin: 40px -6%;
+    text-align: center;
+}
+
+/* Remove the gap between images, videos, audio and canvas and the bottom of their containers */
+
+audio,
+canvas,
+img,
+svg,
+video{
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   Headings
+   ========================================================================== */
+
+h1{
+    font-size: 2.4em;
+}
+
+h2{
+    font-size: 1.8em;
+}
+
+h1, h2, h3, h4{
+    color: #000;
+    font-weight: 700;
+}
+
+.page-content,
+.post-content{
+    line-height: 24px;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/* Remove default fieldset styles. */
+
+fieldset{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Allow only vertical resizing of textareas. */
+
+textarea{
+    resize: vertical;
+}
+
+input, 
+textarea{
+    border: 1px solid #e3e3e3;
+    padding: 5px 10px;
+}
+
+input[type=text]:focus, textarea:focus {
+    border: 1px solid $primary-color;
+    outline: none;
+}
+
+input[type='submit']{
+    padding: 5px 0;
+    margin: 0;
+    background: $primary-color;
+    border: 0;
+    color: #FFF;
+
+    &:hover{
+        background: $link-hover;
+    }
+}
+
+/* ==========================================================================
+   Ellipsis
+   ========================================================================== */
+
+.ellip {
+    display: block;
+    height: 100%;
+}
+
+.ellip-line {
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    max-width: 100%;
+}
+
+.ellip,
+.ellip-line {
+    position: relative;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.site-header{
+    position: fixed;
+    float: left;
+    width: 100%;
+    height: 75px;
+    padding: 10px 0;
+    z-index: 300;
+    background: #FFF;
+    border-bottom: 1px solid #EEEEEE;
+
+    .blog-title{
+        float: left;
+        margin: 10px 0px;
+        text-transform: uppercase;
+        font-size: 1.5em;
+
+        a:hover{
+            color: #000;
+        }
+    }
+
+    .blog-logo{
+        float: left;
+        height: 30px;
+        margin: 14px 0;
+    }
+
+    a:link, 
+    a:visited{
+        color: #000;
+    }
+
+    a:hover{
+       color: $primary-color; 
+    }
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer{
+    float: left;
+    border-top: 1px solid #EEEEEE;
+    color: #373737;
+    clear: both;
+    width: 100%;
+    padding: 15px 2.5%;
+    z-index: 100;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    .info{
+        clear: both;
+        width: 100%;
+    }
+
+    ul{
+        float: left;
+        list-style: none;
+    }
+
+    li{
+        width: auto;
+        float: left;
+        text-align: left;
+        padding: 0 15px;
+    }
+    
+    a:link, 
+    a:visited{
+        color: #373737;
+    }
+
+    a:hover{
+        color: $primary-color;
+    }
+
+}
+
+.copyright{
+    float: left;
+    font-size: 0.7em;
+    padding: 10px 0;
+}
+
+/* ==========================================================================
+   Social Media Icons
+   ========================================================================== */
+
+.social-media{
+    float: right;
+    visibility: hidden; /*hide by default*/
+
+    i{
+        display: inline-block;
+        font-size: 1.1em;
+        margin-right: 5px;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        padding-top: 8px;
+    }
+
+    a:hover{
+        color: $primary-color;
+    }
+}
+
+/* ==========================================================================
+   Posts
+   ========================================================================== */
+
+/* Global Post Styles */
+
+.post{
+
+    .featured-image{
+        position: relative;
+        height: 300px;
+        background-position: center center;
+        background-size: cover;
+
+        p{
+            margin: 0;
+        }
+
+        &.no-featured-image{
+            background: #EEE;
+        }
+
+    }
+
+    .post-title{
+        clear: both;
+        font-family: 'Lora', serif;
+        color: $secondary-color;
+        line-height: 1.25em;
+        font-size: 1.5em;
+        font-weight: normal;
+        margin-top: 5px;
+        margin-bottom: 0px;
+        -ms-word-wrap: break-word;
+        word-wrap: break-word; /* Fixed: Prevent long post titles from breaking out */
+
+        a{
+            color: #252525;
+        }
+        
+    }
+
+}
+
+/* Templates */
+
+.home-template{
+
+    .posts{
+        margin-top: 50px;
+    }
+
+    .post{
+        position: relative;
+        float: left;
+        width: 31.5%;
+        min-height: 450px; 
+        padding: 0;
+        margin: 0 2.5% 50px 0;
+
+        &:first-child{
+            width: 65.7%;
+        }
+
+        &:nth-child(2),
+        &:nth-child(5){
+            margin-right: 0;
+        }
+
+        &:nth-child(3n+7){
+            margin-right: 0;
+        }
+
+        &:nth-child(6),
+        &:nth-child(7){
+            width: 48.5%;
+            min-height: 440px;
+        }
+    }
+
+    .post-title{
+        transition: opacity, 0.2s;
+
+        &:hover{
+            opacity: 0.5;
+        }
+    }
+
+    .post-excerpt{
+        display: none;
+    }
+
+}
+
+.archive-template,
+.tag-template, 
+.author-template{
+
+    #main{
+        padding-top: 50px;
+    }
+
+    .posts{
+        float: left;
+        width: calc(100% - 340px);
+        padding-right: 7.5%;
+    }
+
+    .sidebar{
+        float: right;
+        width: 340px;
+    }
+
+    .post{
+        position: relative;
+        float: left;
+        width: 100%;
+        padding: 0;
+        margin: 0 2.5% 40px 0;
+        padding-bottom: 40px;
+        border-bottom: 1px solid #EEEEEE;
+
+        &:last-child{
+            border-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .featured-image{
+            float: left;
+            width: 340px;
+            height: 200px;
+            margin-right: 30px;
+        }
+    }
+
+    .post-info{
+        float: left;
+        width: calc(100% - 370px);
+    }
+
+    .post-info{
+        padding-top: 0;
+    }
+
+    .post-title{
+        font-size: 1.7em;
+    }
+
+    .post-tags{
+        margin-top: 0;
+    }
+  
+}
+
+.page-template{
+    .page-content{
+        max-width: 680px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.post-meta{
+    color: #B1B1B1;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.7em;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.post-author a{
+    color: #B1B1B1;
+
+    &:hover{
+        color: #252525;
+    }
+}
+
+.post-excerpt{
+    font-weight: normal;
+    text-transform: initial;
+    font-size: 0.9em;
+    line-height: 22px;
+    color: #252525;
+    margin-bottom: 20px;
+}
+
+.post-tags{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    margin: 10px 0 15px 0;
+    color: $primary-color;
+}
+
+.post-info{
+    padding: 15px 0 0 0;
+}
+
+.page-header{
+    margin-bottom: 60px;
+    text-align: center;
+
+    .author-image{
+        width: 60px;
+        height: 60px;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        margin: 0 auto;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    .author-title{
+        font-family: 'Lora', serif;
+        color: #252525;
+        font-size: 3em;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    .author-website{
+        color: #B1B1B1;
+
+        &:hover{
+            color: #252525;
+        }
+    }
+}
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+.sidebar{
+    position: relative;
+
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    h3{
+        margin-top: 0;
+        margin-bottom: 7px;
+        text-transform: uppercase;
+        font-size: 0.85em;
+        padding-bottom: 3px;
+        border-bottom: 1px solid #EEEEEE;
+        font-weight: 600;
+    }
+
+    section{
+        margin-bottom: 40px;
+    }
+
+    .post-tags{
+        margin-top: 0;
+        margin-bottom: 5px;
+
+        a{
+            color: $primary-color;
+        }
+    }
+}
+
+.featured-posts{
+    li:first-child{
+        .featured-image{
+            width: 100%;
+            height: 220px;
+            margin-bottom: 12px;
+        }
+        .title{
+            width: 100%;
+            font-size: 1.1em;
+            line-height: 24px;
+        }
+        .post-tags{
+            clear: both;
+            margin-bottom: 5px;
+        }
+    }
+    li:last-child{
+        margin-bottom: 0;
+    }
+}
+
+.widget,
+.featured-posts{   
+
+    a{
+        color: #252525;
+    }
+
+    li{ 
+        padding: 7px 0 12px 0;
+        margin-bottom: 7px;
+        border-bottom: 1px solid #EEEEEE;
+    }
+
+    li:last-child{
+        border-bottom: 0;
+    }
+
+    .featured-image{
+        float: left;
+        width: 90px;
+        height: 75px;
+        margin-right: 15px;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .title{
+        font-family: 'Lora', serif;
+        float: left;
+        width: calc(100% - 105px);
+        font-size: 0.9em;
+    }
+}
+
+.author-meta{
+
+    h3{
+        margin-bottom: 15px;
+    }
+
+    .author-image{
+        float: left;
+        width: 85px;
+        height: 85px;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+
+    .author-bio{
+        float: left;
+        width: calc(100% - 105px);
+    }
+
+    .author-text{
+        margin: 0;
+        font-size: 0.8em;
+        line-height: 17px;
+    }
+
+}
+
+/* ==========================================================================
+   Recommended posts
+   ========================================================================== */
+
+.recommended{
+    margin-top: 60px;
+
+    .wrapper{
+        max-width: 1095px;
+    }
+
+    h3{
+        margin-top: 0;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        font-size: 0.85em;
+        padding-bottom: 3px;
+        border-bottom: 1px solid #e3e3e3;
+        font-weight: 600;
+    }
+
+    .story{
+        float: left;
+        width: 31.66%;
+        margin-right: 2.5%;
+    }
+    
+    .story:nth-child(3n+3){
+        margin-right: 0;
+    }
+    
+    .featured-image{
+        height: 200px;
+    }
+
+    .post-tags{
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .post-title{
+        font-size: 1.2em !important;
+    }
+}
+
+/* ==========================================================================
+   Comments
+   ========================================================================== */
+
+.comments{
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    border-top: 1px solid #e3e3e3;
+    padding-top: 40px;
+}
+
+.show-comments{
+    cursor: pointer;
+    background: transparent;
+    border: 2px solid #373737;
+    display: inline-block;
+    padding: 10px 40px;
+    font-weight: bold;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    transition: all, 0.2s;
+    outline: 0;
+
+    &:hover{
+        color: $primary-color;
+        border-color: $primary-color;
+    }
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.nav{
+    float: right;
+    margin: 17px 0px;
+    font-size: 0.9em;
+    list-style: none;
+
+    li{
+        float: left;
+        text-align: left;
+        padding: 0 12px;
+        line-height: 15px;
+
+        &:last-child{
+            padding-right: 0px;
+            border-right: 0;
+        }
+    }
+
+    a:hover{
+        opacity: 0.7;
+    }
+
+    .nav-current a{
+        border-bottom: 2px solid $primary-color;
+        font-weight: 600;
+        padding-bottom: 5px;
+    }
+
+}
+
+/* Menu button */
+
+.menu-btn{
+    display: none;
+    float: right;
+    color: #000;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 20px 0;
+}
+
+/* ==========================================================================
+   Slider
+   ========================================================================== */
+
+.slider{
+    position: relative;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 70px;
+    opacity: 0;
+    transition: opacity, 0.2s;
+
+    &.is-hidden {
+      display: none;
+    }
+
+    &.flickity-enabled {
+      opacity: 1;
+    }
+}
+
+.gallery-cell{
+    max-width: 800px;
+    width: 100%;
+    height: 450px;
+
+    a{
+        color: #FFF;
+    }
+}
+
+.slider-image{
+    position: relative;
+    height: 450px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &:before{
+        content: " ";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.3);
+    }
+
+    .info{  
+        position: absolute;
+        bottom: 30px;
+        padding: 0 5%;
+    }
+
+    h2{
+        font-family: 'Lora', serif;
+        position: relative;
+        color: #FFF;
+        margin: 0;
+        font-size: 2.5em;
+        font-weight: 300;
+        z-index: 100;
+        line-height: 48px;
+    }
+
+    .post-tags{
+        color: #FFF;
+        margin: 10px 0;
+    }
+
+}
+
+.flickity-slider{
+    will-change: transform;
+}
+
+.flickity-prev-next-button,
+.flickity-prev-next-button:hover{
+    background: transparent;
+}
+
+.flickity-prev-next-button .arrow{
+    fill: rgba(255,255,255,0.7);
+}
+
+.flickity-page-dots .dot{
+    display: none;
+    width: 7px;
+    height: 7px;
+    margin: 0 2px;
+}
+
+/* ==========================================================================
+   Post Page
+   ========================================================================== */
+
+.post-template{
+
+    .post-header{
+        .wrapper{
+            text-align: center;
+            max-width: 1000px;
+            padding: 0 5%;            
+        }
+    }
+
+    .post-image{
+        padding-top: 40%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .post{
+        margin: 50px 0;
+    }
+
+    .post-content{
+        float: left;
+        width: calc(100% - 440px - 11%);
+        padding-right: 40px;
+
+        p:first-child{
+            margin-top: 0;
+        }
+    }
+
+    .post-title{
+        font-size: 3em;
+    }
+
+    .post-meta{
+        a{
+            color: #B1B1B1;
+        }
+        a:hover{
+            color: #252525;
+        }
+    }
+
+    .sidebar{
+        float: right;
+        width: 340px;
+    }
+
+}
+
+
+/* ==========================================================================
+   Sharing
+   ========================================================================== */
+
+.share{
+    float: left;
+    width: 140px;
+        
+    i{
+        display: inline-block;
+        font-size: 1.1em;
+        width: 35px;
+        float: left;
+        text-align: center;
+    }
+
+    .text{
+        float: left;
+        width: 65%;
+        width: calc(100% - 35px);
+        font-size: 0.8em;
+    }
+
+    a{
+        float: left;
+        width: 100px;
+        color: #B1B1B1;
+        margin-right: 10px;
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #EEEEEE;
+        transition: color, 0.2s;
+
+        &:hover{
+            color: #373737;
+        }
+    }
+
+    a:last-child{
+        border-bottom: 0;
+    }
+
+}
+
+/* ==========================================================================
+   Pagination
+   ========================================================================== */
+
+.pagination{
+    float: left;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin: 0 0 40px 0;
+    text-transform: uppercase;
+}
+
+.newer-posts, 
+.older-posts,
+.load-more-posts{
+    cursor: pointer;
+    border: 2px solid #373737;
+    display: inline-block;
+    padding: 10px 40px;
+    font-weight: bold;
+    font-size: 0.7em;
+    transition: all, 0.5s;
+
+    i{
+        font-weight: bold;
+    }
+}
+
+.newer-posts{
+    i{
+        padding-right: 5px;
+    }
+}
+
+.older-posts,
+.load-more-posts{
+    i{
+        padding-left: 5px;
+    }
+}
+
+a:link, 
+a:visited{
+    &.newer-posts,
+    &.older-posts,
+    &.load-more-posts{
+        color: #373737;
+    }
+}
+
+a:hover{
+    &.newer-posts,
+    &.older-posts,
+    &.load-more-posts{
+        color: $primary-color;
+        border: 2px solid $primary-color;
+    }
+}
+
+.ias-spinner{
+    display: none !important;
+}
+
+/* ==========================================================================
+   Blockquote
+   ========================================================================== */
+
+blockquote{
+    position: relative;
+    font-family: 'Lora', serif;
+    margin: 20px 0;
+    padding: 10px 50px;
+    font-size: 1.4em;
+    line-height: 28px;
+    color: #999999;
+
+    p{
+        display: inline;
+    }
+
+    &:before{
+        content: "\201C";
+        font-family: Georgia, Times, 'Times New Roman', serif;
+        font-size: 3.75rem;
+        font-weight: bold;
+        font-style: normal;
+        color: $primary-color;
+        position: absolute;
+        top: 15px;
+        left: 0;
+    }
+
+    &.pullquote{
+        margin: 0;
+        margin-right: 40px;
+        margin-left: -135px;
+        max-width: 250px;
+        float: left;
+        padding: 20px 0 20px 40px;
+        text-align: right;
+
+        &:before{
+            left: 0;
+            top: 15px;
+        }
+    }
+
+}
+
+/* ==========================================================================
+   Error page
+   ========================================================================== */
+
+.error-content{
+    text-align: center;
+    margin-top: 40px;
+
+    h1{
+        font-family: 'Lora', serif;
+        color: #252525;
+        line-height: 1.25em;
+        font-size: 3em;
+        font-weight: normal;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@import "media-queries";

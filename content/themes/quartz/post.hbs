@@ -1,0 +1,84 @@
+{{!< default}}
+
+{{! This is a post template. It displays a single post that the user selected from the home page template. }}
+    
+
+    {{! Everything inside the #post tags pulls data from the post }}
+    {{#post}}
+                
+    <div class="post post-header">
+        <div class="wrapper">
+            {{#if tags}}<div class="post-tags">{{tags separator=" | "}}</div>{{/if}} 
+            
+            <h1 class="post-title">{{{title}}}</h1>
+
+            <div class="post-meta">
+                <span class="author">By {{author}}</span> |
+                <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="MMMM D, YYYY"}}</time>
+            </div>
+        </div> <!-- .wrapper -->
+    </div> <!-- .post-header -->
+
+    {{#if image}}
+    <div class="post-image" style="background-image:url({{image}})"></div>
+    {{/if}}
+
+    <article class="{{post_class}} clearfix">
+        <div class="wrapper clearfix">
+
+            <section class="share">
+                <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="icon-facebook"></i> <span class="text">Share</span>
+                </a>
+                <a class="twitter" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="icon-twitter"></i> <span class="text">Tweet</span>
+                </a>
+                <a class="google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
+                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="icon-google-plus"></i> <span class="text">+1</span>
+                </a>
+            </section> <!-- .share -->
+
+            <section class="post-content">
+                {{content}}
+
+                <section class="comments">
+                    <button class="show-comments">Show Comments</button>
+                    <div id="disqus_thread"></div>
+                </section> <!-- .comments -->
+
+            </section> <!-- .post-content -->
+
+            {{> "sidebar" }}
+
+        </div> <!-- .wrapper -->
+
+        {{#get "posts" limit="3" include="tags" filter="author:{{author.slug}}+id:-{{id}}"}}
+        <section class="recommended clearfix">
+            <div class="wrapper clearfix">
+                <h3>Recommended stories</h3>
+                <div class="stories">
+                    {{#foreach posts}}
+                        <section class="story">
+                            <a href="{{url}}">
+                                <div class="featured-image {{^if image}}no-featured-image{{/if}}" {{#if image}} style="background-image:url({{image}})" {{/if}}></div>
+                            </a>
+                            <section class="post-info">
+                                {{#if tags}}
+                                    <div class="post-tags">{{tags separator=" | " limit="3"}}</div>
+                                {{/if}}
+                                <a href="{{url}}">           
+                                    <h2 class="post-title">{{{title}}}</h2>
+                                </a>
+                            </section> <!-- .post-info -->
+                        </section> <!-- .story -->
+                    {{/foreach}}
+                </div> <!-- .stories -->
+            </div> <!-- .wrapper -->
+        </section> <!-- .read-next -->
+        {{/get}}
+        
+    </article>
+    {{/post}}

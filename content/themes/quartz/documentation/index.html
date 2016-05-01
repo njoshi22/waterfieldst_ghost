@@ -1,0 +1,522 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Quartz Documentation</title>
+
+</head>
+<body>
+<h1>Quartz Documentation</h1>
+
+<p>Thanks for purchasing Quartz, a premium news &amp; magazine theme for Ghost. Quartz was built for post images, featured posts and multi-user in mind.</p>
+
+<p>For more premium Ghost themes visit <a href="http://voltthemes.com/">VoltThemes.com</a> and <a href="https://twitter.com/VoltThemes">follow us on Twitter</a>!</p>
+
+<h2>Table of Contents</h2>
+
+<ol>
+<li>Getting Started</li>
+<li>Installation</li>
+<li>Upgrading</li>
+<li>Settings</li>
+<li>Customization</li>
+<li>Support</li>
+<li>Version History</li>
+</ol>
+
+
+<h2>1 . Getting Started</h2>
+
+<p>For the purposes of this documentation, it is assumed that you have Ghost up and running. If not, please visit <a href="http://support.ghost.org/">support.ghost.org</a> and follow the guide to install and configure Ghost.</p>
+
+<p>Please make sure you are running the <a href="https://ghost.org/download/">latest version of Ghost</a> before installing &amp; using Quartz.</p>
+
+<h2>2. Installation</h2>
+
+<ol>
+<li>Navigate to the directory on your server where Ghost is installed.</li>
+<li>Once there, navigate to the /content/themes/ directory.</li>
+<li>Upload the theme files to this directory.</li>
+<li>Restart Ghost.</li>
+<li>Log into your Ghost Admin.</li>
+<li>Navigate to Settings > General and select Quartz in the theme options dropdown menu.</li>
+<li>Click 'Save'.</li>
+</ol>
+
+
+<p><strong>Note:</strong> If you're on using Ghost(Pro), please <a href="http://support.ghost.org/upload-theme-ghostpro/">follow these instructions</a> on how to install a theme.</p>
+
+<h3>Public API</h3>
+
+<p>This theme uses the <strong>Public API</strong> feature in Ghost, currently <strong>this feature is in beta</strong> and you will have to enable it in order to use all the theme features.</p>
+
+<ol>
+<li>Go to Settings > Labs in the Ghost admin area.</li>
+<li>Scroll to the bottom of the page</li>
+<li>Under <strong>Enable Beta Features</strong>, tick the checkbox next to <strong>Public API</strong>.</li>
+</ol>
+
+
+<h2>3. Upgrading</h2>
+
+<p>If you have made any changes to Quartz's template or SCSS/CSS files, you will need to re-integrate your custom theme changes.</p>
+
+<p><strong>Always perform a backup of the theme files before upgrading</strong></p>
+
+<ol>
+<li>Download the latest version of Quartz from your <a href="https://creativemarket.com/account/purchases">purchases page</a> on Creative Market.</li>
+<li>Navigate to the folder on your server where Ghost is installed.</li>
+<li>Once there, navigate to the /content/themes/ folder.</li>
+<li>Upload and replace all of the older theme files with the newer ones.</li>
+</ol>
+
+
+<p>Once you update your theme, you will want to restore your changes to the <code>theme-options.js</code> file.</p>
+
+<h2>4. Settings</h2>
+
+<p>In Settings > General several options will alter the content in Quartz:</p>
+
+<ul>
+<li><strong>Blog Logo</strong> - Appears as the first item the header. We recommend a <strong>maximum size</strong> of 240 × 30 pixels.</li>
+<li><strong>Blog Title</strong> - The blog title will be displayed if no blog logo has been uploaded.</li>
+<li><strong>Blog Description</strong> - Appears as your blog description in the search engines.</li>
+<li><strong>Blog Cover</strong> - This theme does not use or display the cover photo.</li>
+<li><strong>Posts per page</strong> - This is how many posts are displayed per page. We recommend setting this to an 10 for Quartz to display an equal number of items per page.</li>
+</ul>
+
+
+<h2>5. Customization</h2>
+
+<p>If you're comfortable with HTML &amp; CSS, you can make any changes to the theme by editing Quartz's template files.</p>
+
+<p><strong>Please be aware that when Quartz is updated in the future, you will need to re-integrate your custom theme changes.</strong></p>
+
+<p>The CSS files were created using <a href="http://sass-lang.com/guide">SASS</a>. If you are familiar with SASS, you can easily customize Quartz.</p>
+
+<h4>Using CSS</h4>
+
+<p>You can add your own custom CSS by <a href="http://support.ghost.org/use-code-injection/">using the Code Injection</a> feature in Ghost.</p>
+
+<p>If you have existing CSS in a <code>custom.css</code> stylesheet, you can cut &amp; paste your CSS into the <strong>Blog Header</strong> using <a href="http://support.ghost.org/use-code-injection/">Code Injection</a>.</p>
+
+<p><strong>Note:</strong> Don't forget to wrap your all your CSS in <code>&lt;style&gt;</code> tags.</p>
+
+<h4>Using SASS</h4>
+
+<p>You will find the following SCSS files in <code>/assets/scss/</code> directory:</p>
+
+<ul>
+<li><strong>screen.scss</strong> - This is the main CSS stylesheet. It imports the mixins.scss and variables.scss files.</li>
+<li><strong>mixins.scss</strong> - This contains all the CSS declarations that Quartz reuses throughout the theme.</li>
+<li><strong>variables.scss</strong> - This contains all the variables that you can tweak to customize the way Quartz looks.</li>
+<li><strong>normalize.scss</strong> - This contains Normalize.css, which is a customisable CSS file that makes browsers render all elements more consistently and in line with modern standards.</li>
+</ul>
+
+
+<p><strong>Note</strong>: You will need a SASS preprocessor, such as <a href="http://gruntjs.com/">Grunt</a> to use the SCSS files.</p>
+
+<h4>Navigation</h4>
+
+<p>You can customize the navigation menu by using the Navigation builder in your Ghost admin area.</p>
+
+<ol>
+<li>Go to Settings > Navigation in your Ghost admin area.</li>
+<li>Add, remove and/or reorder navigation items on the right.</li>
+<li>Click save.</li>
+</ol>
+
+
+<h4>Social Media</h4>
+
+<p>Add your own social media links to the header by editing the <code>theme-options.hbs</code> file located in the partials > js folder.</p>
+
+<ol>
+<li>Navigate to the partials > js folder on your server.</li>
+<li>Open the <code>theme-options.js</code> file in your favorite text editor.</li>
+<li>Find the Social Media section</li>
+<li><p>Add your social media links (between the quotation marks) to the corresponding social media variables.</p>
+
+<p> <strong>Facebook Example:</strong></p>
+
+<pre><code> var facebook_link = "http://www.facebook.com/my_facebook_username";
+</code></pre></li>
+<li><p>Upload the changed <code>theme-options.js</code> file to the partials > js folder.</p></li>
+</ol>
+
+
+<p><strong>Note:</strong> If you don't want a specific social media icon to appear, just leave variable blank.</p>
+
+<pre><code>var facebook_link = "";
+</code></pre>
+
+<p><strong>Note:</strong> If you wish to show RSS icon, change the <code>rss_link</code> value to <code>true</code>.</p>
+
+<pre><code>var rss_link = true;
+</code></pre>
+
+<h4>Post Cover Images</h4>
+
+<p>You can add a post cover image to your posts by adding one in the post settings. This post cover image will be displayed along with the title of the post on the homepage and in the post itself.</p>
+
+<ol>
+<li>Login to the Ghost Admin area.</li>
+<li>Create or edit a post.</li>
+<li>Click the post settings icon, this is located next to the publish/update post button.</li>
+<li>Click "Add post image.</li>
+<li>Save/update the post.</li>
+</ol>
+
+
+<h4>Featured Posts</h4>
+
+<p>Any posts that you <a href="http://support.ghost.org/post-settings-overview/#set-post-as-featured">set as featured</a> will appear in the slider on the home page.</p>
+
+<p>We recommend setting a <strong>minimum of 4 posts</strong> as featured in order for the slider to look the best.</p>
+
+<h4>Featured Post Slider</h4>
+
+<p>You can customize many options for the featured post slider by editing the <code>theme-options.js</code> file located in the assets > js folder:</p>
+
+<ol>
+<li>Navigate to the partials > js folder on your server.</li>
+<li>Open the <code>theme-options.js</code> file in your favorite text editor.</li>
+<li>Find the Featured Posts Slider section.</li>
+<li><p>Edit any of the following slider variables, below are the descriptions and options:</p>
+
+<p> <strong>slider_auto_play_speed:</strong> Time between slide transitions, in milliseconds. If you don't want the slider to auto play, just set the value to <code>0</code>.</p>
+
+<p> This value will set the slide transition speed to 4 seconds:</p>
+
+<p> <code>var slider_auto_play_speed = 4000;</code></p>
+
+<p> This value will disable the slider autoplay:</p>
+
+<p> <code>var slider_auto_play_speed = 0;</code></p>
+
+<p> <strong>slider_wrap_around:</strong> This will make the slider wrap-around to the other oend for infinite scrolling, set as <code>true</code> or <code>false</code>.</p>
+
+<p> <strong>slider_draggable:</strong> Enables dragging and flicking, set as <code>true</code> or <code>false</code></p>
+
+<p> <strong>slider_nav:</strong> Display slider navigation (the arrows), set as <code>true</code> or <code>false</code></p></li>
+</ol>
+
+
+<p><strong>This feature requires you to enable the Public API beta:</strong></p>
+
+<ol>
+<li>Go to Settings > Labs in the Ghost admin area.</li>
+<li>Scroll to the bottom of the page</li>
+<li>Under <strong>Enable Beta Features</strong>, tick the checkbox next to <strong>Public API</strong>.</li>
+</ol>
+
+
+<h4>Sidebar</h4>
+
+<p>The sidebar will showcase your featured posts, latest posts, author information and next/previous posts.</p>
+
+<p>By default, only 4 of your featured posts and latest posts will be displayed in the sidebar.</p>
+
+<p><strong>This feature requires you to enable the Public API beta:</strong></p>
+
+<ol>
+<li>Go to Settings > Labs in the Ghost admin area.</li>
+<li>Scroll to the bottom of the page</li>
+<li>Under <strong>Enable Beta Features</strong>, tick the checkbox next to <strong>Public API</strong>.</li>
+</ol>
+
+
+<h4>Recommended Stories</h4>
+
+<p>At the end of each post, 3 recommended stories will be shown to the user. These recommended stories are posts written by the author of the current post.</p>
+
+<p><strong>This feature requires you to enable the Public API beta:</strong></p>
+
+<ol>
+<li>Go to Settings > Labs in the Ghost admin area.</li>
+<li>Scroll to the bottom of the page</li>
+<li>Under <strong>Enable Beta Features</strong>, tick the checkbox next to <strong>Public API</strong>.</li>
+</ol>
+
+
+<h4>Pull Quotes</h4>
+
+<p><a href="https://en.wikipedia.org/wiki/Pull_quote">Pull quotes</a> are a small selection of text that are "pulled out" and quoted.</p>
+
+<p>It's easy to use pull quotes, all you have to do in place the following <strong>HTML code</strong> where you want the pull quote to be shown:</p>
+
+<pre><code>&lt;blockquote class="pullquote"&gt;
+Please replace this text with your own quote!
+&lt;/blockquote&gt;
+</code></pre>
+
+<p>Don't forget to replace the text inbetween the <code>&lt;blockquote&gt;</code> HTML tag with your own quote!</p>
+
+<h4>Comments</h4>
+
+<p>You can enable Disqus comments on your blog by adding your <a href="https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname">Disqus shortname</a> to the <code>theme-options.js</code> file located in the assets > js folder:</p>
+
+<ol>
+<li><a href="http://disqus.com/register">Add your site</a> to your Disqus account and setup a unique Disqus URL. The unique <strong>shortname</strong> you pick for your Disqus URL will be important to remember!</li>
+<li>Navigate to the assets > js folder on your server.</li>
+<li><p>Open the <code>theme-options.js</code> file and add your unique <a href="https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname">shortname</a> to the <code>disqus</code> variable.</p>
+
+<p> <strong>Example:</strong></p>
+
+<pre><code> var disqus = "DISQUS_SHORTNAME_HERE";
+</code></pre></li>
+<li><p>Save/update the <code>theme-options.js</code> file.</p></li>
+</ol>
+
+
+<p><strong>Note</strong>: If you don't want comments on your blog just leave the <code>disqus</code> variable blank.</p>
+
+<pre><code>var disqus = ""; 
+</code></pre>
+
+<h4>Image Lightbox</h4>
+
+<p>By default Quartz will <strong>automatically</strong> add an image lightbox to all images within a post. You can disable the automatic image lightbox by editing the <code>theme-options.js</code> file located in the partials > js folder.</p>
+
+<ol>
+<li>Navigate to the partials > js folder on your server.</li>
+<li>Open the <code>theme-options.js</code> file in your favorite text editor.</li>
+<li><p>Find the <code>lightbox</code> variable and change the value from <code>true</code> to <code>false</code>.</p>
+
+<p> <strong>Example:</strong></p>
+
+<pre><code> var lightbox = false;
+</code></pre></li>
+<li><p>Upload the changed <code>theme-options.js</code> file to the partials > js folder.</p></li>
+</ol>
+
+
+<p><strong>Note:</strong> If you wish to enable the automatic image lightbox again just change the <code>false</code> value to <code>true</code>.</p>
+
+<pre><code>var lightbox = true;
+</code></pre>
+
+<h4>Infinite Scroll</h4>
+
+<p>By default infinite scroll will be disabled. You can enable infinite scroll by editing the <code>theme-options.js</code> file located in the partials > js folder.</p>
+
+<ol>
+<li>Navigate to the partials > js folder on your server.</li>
+<li>Open the <code>theme-options.js</code> file in your favorite text editor.</li>
+<li><p>Find the <code>lightbox</code> variable and insert the text (between the quotation marks) <code>scroll</code> or <code>click</code>. Here are the differences between the two options:</p>
+
+<p> <strong>Scroll will load new posts while scrolling:</strong></p>
+
+<pre><code> var infinite_scroll = "scroll";
+</code></pre>
+
+<p> <strong>Click will load new posts with a click of a button:</strong></p>
+
+<pre><code> var infinite_scroll = "click";
+</code></pre></li>
+<li><p>Upload the changed <code>theme-options.js</code> file to the partials > js folder.</p></li>
+</ol>
+
+
+<p><strong>Note:</strong> If you wish to disable infinite scroll just change the <code>infinite_scroll</code> variable blank.</p>
+
+<pre><code>var infinite_scroll = "";   
+</code></pre>
+
+<h2>6. Support</h2>
+
+<p>Support for this theme will be provided on Creative Market via this item's comments and via messages to the author.</p>
+
+<h4>Support for my items includes:</h4>
+
+<ul>
+<li>Responding to questions or problems regarding the item and its features</li>
+<li>Fixing bugs and reported issues</li>
+<li>Providing updates to ensure compatibility with new software versions</li>
+</ul>
+
+
+<h4>Item support does not include:</h4>
+
+<ul>
+<li>Customization and installation services</li>
+<li>Support for third party software and plug-ins</li>
+</ul>
+
+
+<h2>7. Version History</h2>
+
+<h4>2016.03.07 - v1.0.2</h4>
+
+<ul>
+<li>Added SoundCloud support to the social media links.</li>
+</ul>
+
+
+<h4>2016.03.07 - v1.0.1</h4>
+
+<ul>
+<li>Fixed bug where slider wouldn't display if less than 3 posts where set as featured.</li>
+<li>Added missing <code>Gruntfile.js</code>.</li>
+<li>Added missing JS vendor files.</li>
+</ul>
+
+
+<h4>2016.02.11 - v1.0.0</h4>
+
+<ul>
+<li>Initial Release.</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,421 @@
+@media screen and (max-width: 1250px){
+	/* archive, tag, author template */
+	.archive-template .post .featured-image, 
+	.tag-template .post .featured-image, 
+	.author-template .post .featured-image{
+		width: 260px;
+		height: 180px;
+	}
+
+	.archive-template .post-info, .tag-template .post-info, .author-template .post-info{
+		width: calc(100% - 290px);
+	}
+
+	.archive-template .post-title, 
+	.tag-template .post-title, 
+	.author-template .post-title{
+		font-size: 1.5em;
+	}
+
+	.post-excerpt{
+		line-height: 19px;
+		margin-bottom: 15px;
+	}
+}
+
+@media screen and (max-width: 1100px){
+
+	/* Home */
+
+	.home-template{
+		/* 2 col layout */
+		.post,
+		.post:nth-child(6), 
+		.post:nth-child(7),
+		.post:first-child{
+			width: 48.7%;
+			min-height: 450px;
+		}
+
+		.post:nth-child(5),
+		.post:nth-child(7){
+			margin-right: 2.5%;
+		}
+
+		.post:nth-child(even){
+			margin-right: 0;
+		}
+	}
+
+	/* Slider */
+
+	.slider{
+		margin-bottom: 0;
+	}
+
+}
+
+@media screen and (max-width: 1050px){
+
+	/* Site header */
+	.site-header{
+		.nav{
+			display: none;
+		}
+	}
+
+	.menu-btn{
+		display: block;
+	}
+
+	/* Post template */
+
+	.post-template .post-content{
+		width: calc(100% - 140px);
+		padding-right: 0;
+	}
+
+	.full-width{
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	/* sidebar */
+
+	.post-template .sidebar{
+		width: 100%;
+		margin-top: 50px;
+		min-height: 477px;
+		margin-bottom: -50px;
+
+		section{
+			float: left;
+			width: 50%;
+			padding-right: 5%;
+		}
+
+		.read-next{
+			position: absolute;
+			bottom: 40px;
+			margin-bottom: 0;
+
+			&.no-author-meta,
+			&.no-recent-posts,
+			&.extra-widgets{
+				position: relative;
+				bottom: 0;
+			}
+		}
+
+		&.no-author-meta,
+		&.no-recent-posts,
+		&.extra-widgets{
+			min-height: 100%;
+		}
+	}
+
+	.author-meta .author-text{
+		font-size: 0.85em;
+		line-height: 18px;
+	}
+
+	/* archive, tag, author template */
+
+	.archive-template .posts, .tag-template .posts, .author-template .posts{
+		width: 100%;
+		padding-right: 0;
+	}
+
+	.archive-template .sidebar, 
+	.tag-template .sidebar, 
+	.author-template .sidebar{
+		width: 100%;
+		margin-top: 20px;
+
+		section{
+			float: left;
+			width: 50%;
+			padding-right: 5%;
+		}
+	}
+
+	.featured-posts li:first-child .featured-image{
+		height: auto;
+		padding-top: 46.5%;
+	}
+
+}
+
+@media screen and (max-width: 750px){
+
+	/* Home */
+
+	.home-template{
+		/* 1 col layout */
+		.post,
+		.post:nth-child(6), 
+		.post:nth-child(7),
+		.post:first-child{
+			width: 100%;
+			min-height: 100%;
+			margin-right: 0;
+		}
+
+		.post:nth-child(5),
+		.post:nth-child(7){
+			margin-right: 0;
+		}
+
+		.post:nth-child(even){
+			margin-right: 0;
+		}
+	}
+
+	.post .featured-image{
+		padding-top: 43%;
+		height: 180px;
+	}
+
+	/* footer */
+
+	.site-footer{
+		padding-top: 8px;
+		padding-bottom: 8px;
+	}
+
+	.copyright,
+	.social-media{
+		width: 100%;
+		text-align: center;
+	}
+
+	/* sidebar */
+
+	.archive-template .sidebar, 
+	.tag-template .sidebar, 
+	.author-template .sidebar{
+		margin-top: 50px;
+	}
+
+	.post-template .sidebar section{
+		width: 100%;
+		padding-right: 0;
+
+		&:last-child{
+			margin-bottom: 40px;
+		}
+	}
+
+	.post-template .sidebar .read-next{
+		position: relative;
+		bottom: auto;
+	}
+
+	.widget .featured-image, 
+	.featured-posts .featured-image{
+		height: 75px;
+		padding-top: 0;
+	}
+
+	/* recommended */
+
+	.recommended .story{
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 40px;
+	}
+
+	/* archive, tag, author template */
+
+	.archive-template .post .featured-image, 
+	.tag-template .post .featured-image, 
+	.author-template .post .featured-image{
+		width: 100%;
+		margin-right: 0;
+	}
+
+	.archive-template .post-info, 
+	.tag-template .post-info, 
+	.author-template .post-info{
+		width: 100%;
+		padding-top: 15px;
+	}
+
+	.archive-template .post .post-tags, 
+	.tag-template .post .post-tags, 
+	.author-template .post .post-tags{
+		margin: 10px 0 15px 0;
+	}
+
+	.archive-template .sidebar section, 
+	.tag-template .sidebar section, 
+	.author-template .sidebar section{
+		width: 100%;
+		padding-right: 0;
+	}
+
+	.archive-template .post, .tag-template .post, .author-template .post{
+		border-bottom: 0;
+		padding-bottom: 0;
+		margin-bottom: 50px;
+	}
+
+	/* pagination */
+
+	.pagination{
+		margin-top: 30px;
+		margin-bottom: 0;
+	}
+
+}
+
+@media screen and (max-width: 650px){
+	.wrapper{
+		padding: 0 5%;
+	}
+
+	.archive-template #main, .tag-template #main, .author-template #main{
+		padding-top: 40px;
+	}
+
+	.page-header{
+		margin-bottom: 40px;
+	}
+
+	.page-header .author-title{
+		font-size: 2em;
+	}
+
+	.archive-template .post, .tag-template .post, .author-template .post{
+		margin-bottom: 40px;
+	}
+
+	/* post template */
+
+	.post-template .post{
+		margin: 30px 0;
+	}
+
+	.post-template .post-image{
+		padding-top: 0;
+		height: 250px;
+	}
+
+	.post-template .post-title{
+		font-size: 2.0em;
+	}
+
+	.post-template .post-content{
+		width: 100%;
+	}
+
+	.share{
+		width: 100%;
+		text-align: center;
+
+		a{
+			float: none;
+			display: inline-block;
+			border: 1px solid #EEEEEE;
+			padding: 8px 0px;
+			width: 85px;
+		}
+
+		.google-plus{
+			width: 65px;
+		}
+
+		a:last-child{
+			border: 1px solid #EEEEEE;
+		}
+
+		.text{
+			text-align: left;
+		}
+
+	}
+
+	/* quotes */
+
+	blockquote.pullquote{
+		margin-left: 0;
+	}
+
+}
+
+@media screen and (max-width: 600px){
+	/* slider */
+
+	.flickity-prev-next-button{
+		display: none;
+	}
+
+	.flickity-page-dots .dot{
+		display: inline-block;
+	}
+
+	.gallery-cell,
+	.slider-image{
+		height: 380px;
+	}
+
+	.slider-image h2{
+		font-size: 2em;
+		line-height: 36px;
+	}
+
+	/* home page */
+
+	.home-template .post .post-title,
+	.archive-template .post .post-title,
+	.author-template .post .post-title,
+	.tag-template .post .post-title{
+		font-size: 1.3em;
+	}
+
+}
+
+@media screen and (max-width: 500px){
+	/* quotes */
+
+	blockquote.pullquote{
+		max-width: 100%;
+		text-align: left;
+	}
+}
+
+@media screen and (max-width: 400px){
+	/* slider */
+
+	.slider-image h2{
+		font-size: 1.8em;
+		line-height: 34px;
+	}
+
+	/* author meta */
+
+	.author-meta .author-image{
+		float: none;
+		margin: 0 auto;
+		margin-bottom: 15px;
+	}
+
+	.author-meta .author-bio{
+		width: 100%;
+	}
+
+	/* post template */
+
+	.post-template .post-title{
+		font-size: 1.5em;
+	}
+
+}
+
+@media screen and (max-width: 320px){
+	/* sidebar */
+	.widget .title, 
+	.featured-posts .title{
+		font-size: 0.85em;
+	}
+}

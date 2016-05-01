@@ -1,0 +1,99 @@
+<div class="sidebar">
+    {{#is "index, tag, author"}}
+        {{#get "posts" include="tags" filter="featured:true" limit="4" as |featured|}}
+        <section class="featured-posts">
+          <h3>Top stories</h3>
+          <ul>
+            {{#foreach featured}}
+            <li class="clearfix">
+                <a href="{{url}}">
+                    <div class="featured-image {{^if image}}no-featured-image{{/if}}" {{#if image}} style="background-image:url({{image}})" {{/if}}></div>
+                </a>
+                {{#if tags}}
+                    <div class="post-tags">{{tags separator=" | " limit="1"}}</div>
+                {{/if}}
+                <a class="title" href="{{url}}">{{title}}</a>
+            </li>
+            {{/foreach}}
+          </ul>
+        </section>
+        {{/get}}
+    {{/is}}
+
+    {{#is "post"}}
+        {{#author}}
+            {{#if bio}}
+            <section class="author-meta widget clearfix">                    
+                <h3>About {{name}}</h3>
+
+                {{#if image}}
+                <a href="{{url}}">
+                    <div class="author-image-wrapper">
+                        <div class="author-image" style="background-image:url({{image}})"></div>
+                    </div>
+                </a>
+                <div class="author-bio">
+                {{else}}
+                <div class="author-bio" style="width: 100%;">
+                {{/if}}
+
+                {{#if bio}}
+                    <p class="author-text">{{bio}}</p>
+                {{/if}}
+                </div>
+            </section>
+            {{/if}}
+        {{/author}}
+    {{/is}}
+
+    {{#get "posts" include="tags" limit="4" as |recents|}}
+    <section class="recent-posts widget">
+        <h3>Latest stories</h3>
+        <ul>
+            {{#foreach recents}}
+            <li class="clearfix">
+                <a href="{{url}}">
+                    <div class="featured-image {{^if image}}no-featured-image{{/if}}" {{#if image}} style="background-image:url({{image}})" {{/if}}></div>
+                </a>
+                {{#if tags}}
+                    <div class="post-tags">{{tags separator=" | " limit="1"}}</div>
+                {{/if}}
+                <div class="title-wrapper">
+                <a class="title" href="{{url}}">{{title}}</a>
+                </div>
+            </li>
+            {{/foreach}}
+        </ul>
+    </section>
+    {{/get}}
+
+    {{#is "post"}}
+    <section class="read-next widget">
+        <h3>More stories</h3>
+        <ul>
+            {{#prev_post}}
+            <li class="clearfix">
+                <a href="{{url}}">
+                    <div class="featured-image {{^if image}}no-featured-image{{/if}}" {{#if image}} style="background-image:url({{image}})" {{/if}}></div>
+                </a>
+                {{#if tags}}
+                    <div class="post-tags">{{tags separator=" | " limit="1"}}</div>
+                {{/if}}
+                <a class="title" href="{{url}}">{{title}}</a>
+            </li>
+            {{/prev_post}}
+            {{#next_post}}
+            <li class="clearfix">
+                <a href="{{url}}">
+                    <div class="featured-image {{^if image}}no-featured-image{{/if}}" style="background-image:url({{image}})"></div>
+                </a>
+                {{#if tags}}
+                    <div class="post-tags">{{tags separator=" | " limit="1"}}</div>
+                {{/if}}
+                <a class="title" href="{{url}}">{{title}}</a>
+            </li>
+            {{/next_post}}
+        </ul>
+    </section>
+    {{/is}}
+</div> <!-- .sidebar -->

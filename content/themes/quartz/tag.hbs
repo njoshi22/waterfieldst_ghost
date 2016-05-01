@@ -1,0 +1,34 @@
+{{!< default}}
+
+{{! This is a tag page template. It displays posts from a paticular tag }}
+
+    <div class="wrapper clearfix">   
+        <div class="posts clearfix">
+            {{#foreach posts}}
+            <div class="{{post_class}}">
+                <a href="{{url}}">
+                    <div class="featured-image {{^if image}}no-featured-image{{/if}}" {{#if image}} style="background-image:url({{image}})" {{/if}}></div> 
+                </a>
+                <section class="post-info">
+                    {{#if tags}}
+                        <div class="post-tags">{{tags separator=" | " limit="3"}}</div>
+                    {{/if}}
+                    <h2 class="post-title">
+                        <a href="{{url}}">{{{title}}}</a>
+                    </h2>
+                    <p class="post-excerpt">{{excerpt words="25"}}...</p>
+                    <div class="post-meta">
+                        <span class="post-author">By {{author}}</span>
+                        <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}"> - {{date format="MMMM D, YYYY"}}</time>
+                    </div>
+                </section> 
+            </div>
+            {{/foreach}}
+        </div> <!-- .posts -->
+        
+        {{> "sidebar" }}
+        
+    </div> <!-- .wrapper -->
+    
+    {{!! Pagination links }}
+    {{pagination}}

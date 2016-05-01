@@ -1,0 +1,26 @@
+{{!< default}}
+
+{{! This is a page template. A page outputs content just like any other post, and has all the same
+    attributes by default, but you can also customise it to behave differently if you prefer. }}
+
+    {{! Everything inside the #post tags pulls data from the post }}
+    {{#post}}
+                
+    <div class="{{post_class}} post-header">
+        <div class="wrapper">            
+            <h1 class="post-title">{{{title}}}</h1>
+        </div> <!-- .wrapper -->
+    </div> <!-- .post-header -->
+
+    {{#if image}}
+    <div class="post-image" style="background-image:url({{image}})"></div>
+    {{/if}}
+
+    <article class="{{post_class}} clearfix">
+        <div class="wrapper clearfix">
+            <section class="page-content">
+                {{content}}
+            </section> <!-- .post-content -->
+        </div> <!-- .wrapper -->        
+    </article>
+    {{/post}}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{! Document Settings }}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        {{! Page Meta }}
+        <title>{{meta_title}}</title>
+        <meta name="description" content="{{meta_description}}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        {{! Removes Microsoft Edge Phone Number Styling  }}
+        <meta name="format-detection" content="telephone=no">
+
+        {{! CSS  }}
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{asset "css/screen.css"}}">
+        
+        {{! Ghost outputs important style and meta data with this tag }}
+        {{ghost_head}}
+
+    </head>
+    <body class="{{body_class}}">
+        
+        <header class="site-header push">
+            {{> "header"}}                  
+        </header>
+
+        {{#if @blog.navigation}}
+            <nav class="pushy pushy-left">
+                {{navigation}}
+            </nav>
+        {{/if}}
+
+        <div class="site-overlay"></div>
+
+        <main class="animated fadeIn" id="main" role="main">
+            {{{body}}}
+        </main>
+
+        <footer class="site-footer push">
+            {{> "footer"}}
+        </footer>
+
+        {{! Ghost outputs important scripts and data with this tag }}
+        {{ghost_foot}}
+
+        <script type="text/javascript"> 
+            //Load jQuery if it doesn't exist
+            if (typeof jQuery == 'undefined') {
+                document.write('<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></'+'script>');
+            }
+        </script> 
+
+        <script src="{{asset "js/theme-options.js"}}"></script>
+        <script src="{{asset "js/main.min.js"}}"></script>
+    </body>
+</html>
